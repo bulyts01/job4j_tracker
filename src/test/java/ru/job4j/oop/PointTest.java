@@ -5,7 +5,7 @@ import static org.junit.Assert.assertThat;
 
 import org.junit.Test;
 
-public class PointTest{
+public class PointTest {
 
     @Test
     public void when00To20Then2() {
@@ -26,7 +26,7 @@ public class PointTest{
     @Test
     public void when55To11Then5dot65() {
         Point a = new Point(5, 5);
-        Point b = new Point(1,1);
+        Point b = new Point(1, 1);
         double dist = a.distance(b);
         assertThat(dist, closeTo(5.65, 0.01));
     }
