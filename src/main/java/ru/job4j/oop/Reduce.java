@@ -5,10 +5,10 @@ public class Reduce {
     private int[] array;
 
     public void to(int[] array) {
-        array = array;
+        this.array = array;
     }
 
-    public void print(int[] array) {
+    public void print() {
         for (int index = 0; index < array.length; index++) {
             System.out.println(array[index]);
         }
@@ -18,6 +18,6 @@ public class Reduce {
         int[] array = {1, 2, 3};
         Reduce reduce = new Reduce();
         reduce.to(array);
-        reduce.print(array);
+        reduce.print();
     }
 }
