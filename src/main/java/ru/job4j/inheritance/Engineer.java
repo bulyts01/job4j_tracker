@@ -9,9 +9,6 @@ public class Engineer extends Profession {
         this.project = project;
     }
 
-    public Engineer() {
-    }
-
     public String getProject() {
         return this.project;
     }

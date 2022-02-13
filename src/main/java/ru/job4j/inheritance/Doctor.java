@@ -9,9 +9,6 @@ public class Doctor extends Profession {
         this.district = district;
     }
 
-    public Doctor() {
-    }
-
     public int getDistrict() {
         return this.district;
     }
