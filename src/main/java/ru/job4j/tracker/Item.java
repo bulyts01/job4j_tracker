@@ -1,4 +1,4 @@
-package ru.job4j.oop.kolobok;
+package ru.job4j.tracker;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -18,10 +18,6 @@ public class Item {
     public Item(String name, int id) {
         this.name = name;
         this.id = id;
-    }
-
-    public Item(LocalDateTime created) {
-        this.created = created;
     }
 
     public LocalDateTime getCreated() {
