@@ -5,11 +5,6 @@ public class User {
     private String username;
     private String password;
 
-    @Override
-    public String toString() {
-        return "User{" + "id=" + id + ", username='" + username + '\'' + ", password='" + password + '\'' + '}';
-    }
-
     public User(int id, String username, String password) {
         this.id = id;
         this.username = username;
@@ -27,4 +22,10 @@ public class User {
     public String getPassword() {
         return password;
     }
+
+    @Override
+    public String toString() {
+        return "User{" + "id=" + id + ", username='" + username + '\'' + ", password='" + password + '\'' + '}';
+    }
+
 }
