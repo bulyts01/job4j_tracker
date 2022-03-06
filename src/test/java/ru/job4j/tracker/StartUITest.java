@@ -3,13 +3,8 @@ package ru.job4j.tracker;
 import org.junit.Test;
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 
 public class StartUITest {
-
-    private LocalDateTime created = LocalDateTime.now();
-    private static final DateTimeFormatter FORMATTER = DateTimeFormatter.ofPattern("dd-MMMM-EEEE-yyyy HH:mm:ss");
 
     @Test
     public void whenExit() {
@@ -76,7 +71,7 @@ public class StartUITest {
                         + "0. Show all items" + ln
                         + "1. Exit" + ln
                         + "=== Show all items ===" + ln
-                        + "Item{id = 1, name = 'test2', created = " + created.format(FORMATTER) + "}" + ln
+                        + one + ln
                         + "Menu." + ln
                         + "0. Show all items" + ln
                         + "1. Exit" +  ln
@@ -84,13 +79,13 @@ public class StartUITest {
         ));
     }
 
-    /* @Test
+    @Test
     public void whenFindByNameItemTestOutputIsSuccessfully() {
         Output out = new StubOutput();
         Tracker tracker = new Tracker();
         Item one = tracker.add(new Item("test3"));
         Input in = new StubInput(
-                new String[] {"0", "1"}
+                new String[] {"0", String.valueOf(one.getName()), "1"}
         );
         UserAction[] actions = new UserAction[]{
                 new FindByNameAction(out),
@@ -103,7 +98,7 @@ public class StartUITest {
                         + "0. Find item by name" + ln
                         + "1. Exit" + ln
                         + "=== Find items by name ===" + ln
-                        + "Item{id = 1, name = 'test3', created = " + created.format(FORMATTER) + "}" + ln
+                        + one + ln
                         + "Menu." + ln
                         + "0. Find item by name" + ln
                         + "1. Exit" +  ln
@@ -117,7 +112,7 @@ public class StartUITest {
         Tracker tracker = new Tracker();
         Item one = tracker.add(new Item("test4"));
         Input in = new StubInput(
-                new String[] {"0", "1"}
+                new String[] {"0", String.valueOf(one.getId()), "1"}
         );
         UserAction[] actions = new UserAction[]{
                 new FindByIdAction(out),
@@ -130,11 +125,11 @@ public class StartUITest {
                         + "0. Find item by ID" + ln
                         + "1. Exit" + ln
                         + "=== Find ID ===" + ln
-                        + "Item{id = 1, name = 'test4', created = " + created.format(FORMATTER) + "}" + ln
+                        + one + ln
                         + "Menu." + ln
                         + "0. Find item by ID" + ln
                         + "1. Exit" +  ln
                         + "=== Exit Programm ===" +  ln
         ));
-    } **/
+    }
 }
