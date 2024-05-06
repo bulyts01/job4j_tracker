@@ -1,14 +1,17 @@
 package ru.job4j.tracker.input;
 
-import java.util.Scanner;
+public class Stub implements Input {
 
-public class ConsoleInput implements Input {
-    private Scanner scanner = new Scanner(System.in);
+    private String[] answers;
+    private int position = 0;
+
+    public Stub(String[] answers) {
+        this.answers = answers;
+    }
 
     @Override
     public String askStr(String question) {
-        System.out.print(question);
-        return scanner.nextLine();
+        return answers[position++];
     }
 
     @Override
