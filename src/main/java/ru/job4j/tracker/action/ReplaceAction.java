@@ -5,29 +5,29 @@ import ru.job4j.tracker.Item;
 import ru.job4j.tracker.output.Output;
 import ru.job4j.tracker.Tracker;
 
-public class FindByName implements UserAction {
+public class ReplaceAction implements UserAction {
+
     private final Output out;
 
-    public FindByName(Output out) {
+    public ReplaceAction(Output out) {
         this.out = out;
     }
 
     @Override
     public String name() {
-        return "Find item by name";
+        return "Edit item";
     }
 
     @Override
     public boolean execute(Input input, Tracker tracker) {
-        out.println("=== Find items by name ===");
+        out.println("=== Edit item ===");
+        int id = input.askInt("Enter ID: ");
         String name = input.askStr("Enter name: ");
-        Item[] items = tracker.findByName(name);
-        if (items.length > 0) {
-            for (Item item : items) {
-                out.println(item);
-            }
+        Item item = new Item(name);
+        if (tracker.replace(id, item)) {
+            out.println("Заявка изменена успешно.");
         } else {
-            out.println("Заявки с именем: " + name + " не найдены");
+            out.println("Ошибка замены заявки.");
         }
         return true;
     }
