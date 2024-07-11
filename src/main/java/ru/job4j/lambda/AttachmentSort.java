@@ -41,7 +41,6 @@ public class AttachmentSort {
 class Attachment {
     private String name;
     private int size;
-
     public Attachment(String image, int size) {
         this.name = image;
         this.size = size;
