@@ -47,6 +47,10 @@ class Attachment {
         this.name = name;
     }
 
+    public void setSize(int size) {
+        this.size = size;
+    }
+
     @Override
     public String toString() {
         return "Attachment{" +
