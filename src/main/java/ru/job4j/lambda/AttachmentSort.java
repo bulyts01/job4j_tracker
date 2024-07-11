@@ -24,6 +24,7 @@ public class AttachmentSort {
         Comparator<Attachment> comparatorByName = Comparator.comparing(Attachment::getName);
         attachments.sort(comparatorByName);
         System.out.println(attachments);
+        System.out.println(attachments);
     }
 }
 
