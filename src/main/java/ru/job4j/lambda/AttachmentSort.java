@@ -16,23 +16,12 @@ public class AttachmentSort {
                 new Attachment("image 0", 13),
                 new Attachment("images 0", 13)
         );
-        Comparator<Attachment> comparator = new Comparator<>() {
-            @Override
-            public int compare(Attachment o1, Attachment o2) {
-                return Integer.compare(o1.getSize(), o2.getSize());
-            }
-        };
+        Comparator<Attachment> comparator = Comparator.comparingInt(Attachment::getSize);
         attachments.sort(comparator);
         System.out.println(attachments);
         // Здесь создайте компаратор на основании анонимного класса.
 
-        Comparator<Attachment> comparatorByName = new Comparator<>() {
-            @Override
-            public int compare(Attachment o1, Attachment o2) {
-                return o1.getName().compareTo(o2.getName());
-//                return Integer.compare(o1.getName().length(),o2.getName().length());
-            }
-        };
+        Comparator<Attachment> comparatorByName = Comparator.comparing(Attachment::getName);
         attachments.sort(comparatorByName);
         System.out.println(attachments);
     }
@@ -52,6 +41,14 @@ class Attachment {
 
     public String getName() {
         return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setSize(int size) {
+        this.size = size;
     }
 
     @Override
