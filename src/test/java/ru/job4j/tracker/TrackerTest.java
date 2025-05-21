@@ -1,10 +1,8 @@
 package ru.job4j.tracker;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
-import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.is;
-import static org.hamcrest.core.IsNull.nullValue;
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class TrackerTest {
     @Test
@@ -13,7 +11,7 @@ public class TrackerTest {
         Item bug = new Item("Bug");
         Item item = tracker.add(bug);
         Item result = tracker.findById(item.getId());
-        assertThat(result.getName(), is(item.getName()));
+        assertThat(result.getName()).isEqualTo(item.getName());
     }
 
     @Test
@@ -24,7 +22,7 @@ public class TrackerTest {
         tracker.add(first);
         tracker.add(second);
         Item result = tracker.findAll()[0];
-        assertThat(result.getName(), is(first.getName()));
+        assertThat(result.getName()).isEqualTo(first.getName());
     }
 
     @Test
@@ -38,7 +36,7 @@ public class TrackerTest {
         tracker.add(new Item("Second"));
         tracker.add(new Item("First"));
         Item[] result = tracker.findByName(first.getName());
-        assertThat(result.length, is(3));
+        assertThat(result.length).isEqualTo(3);
     }
 
     @Test
@@ -52,7 +50,7 @@ public class TrackerTest {
         tracker.add(new Item("Second"));
         tracker.add(new Item("First"));
         Item[] result = tracker.findByName(second.getName());
-        assertThat(result[1].getName(), is(second.getName()));
+        assertThat(result[1].getName()).isEqualTo(second.getName());
     }
 
     @Test
@@ -65,7 +63,7 @@ public class TrackerTest {
         Item bugWithDesc = new Item();
         bugWithDesc.setName("Bug with description");
         tracker.replace(id, bugWithDesc);
-        assertThat(tracker.findById(id).getName(), is("Bug with description"));
+        assertThat(tracker.findById(id).getName()).isEqualTo("Bug with description");
     }
 
     @Test
@@ -76,6 +74,6 @@ public class TrackerTest {
         tracker.add(bug);
         int id = bug.getId();
         tracker.delete(id);
-        assertThat(tracker.findById(id), is(nullValue()));
+        assertThat(tracker.findById(id)).isNull();
     }
 }

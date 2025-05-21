@@ -1,9 +1,9 @@
 package ru.job4j.oop;
 
-import static org.hamcrest.Matchers.closeTo;
-import static org.junit.Assert.assertThat;
+import org.assertj.core.data.Percentage;
+import org.junit.jupiter.api.Test;
 
-import org.junit.Test;
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class PointTest {
 
@@ -12,7 +12,7 @@ public class PointTest {
         Point a = new Point(0, 0);
         Point b = new Point(2, 0);
         double dist = a.distance(b);
-        assertThat(dist, closeTo(2, 0.01));
+        assertThat(dist).isCloseTo(2, Percentage.withPercentage(0.1));
     }
 
     @Test
@@ -20,7 +20,7 @@ public class PointTest {
         Point a = new Point(2, 0);
         Point b = new Point(5, 5);
         double dist = a.distance(b);
-        assertThat(dist, closeTo(5.83, 0.01));
+        assertThat(dist).isCloseTo(5.83, Percentage.withPercentage(0.1));
     }
 
     @Test
@@ -28,7 +28,7 @@ public class PointTest {
         Point a = new Point(5, 5);
         Point b = new Point(1, 1);
         double dist = a.distance(b);
-        assertThat(dist, closeTo(5.65, 0.01));
+        assertThat(dist).isCloseTo(5.65, Percentage.withPercentage(1));
     }
 
     @Test
@@ -36,7 +36,7 @@ public class PointTest {
         Point a = new Point(1, 1, 1);
         Point b = new Point(2, 3, 2);
         double dist = a.distance3d(b);
-        assertThat(dist, closeTo(2.44, 0.01));
+        assertThat(dist).isCloseTo(2.44, Percentage.withPercentage(1));
     }
 
     @Test
@@ -44,6 +44,6 @@ public class PointTest {
         Point a = new Point(5, 5, 5);
         Point b = new Point(3, 0, 0);
         double dist = a.distance3d(b);
-        assertThat(dist, closeTo(7.34, 0.01));
+        assertThat(dist).isCloseTo(7.34, Percentage.withPercentage(1));
     }
 }

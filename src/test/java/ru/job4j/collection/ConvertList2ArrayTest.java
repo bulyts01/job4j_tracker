@@ -1,11 +1,10 @@
 package ru.job4j.collection;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
 
-import static org.hamcrest.CoreMatchers.is;
-import static org.junit.Assert.assertThat;
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class ConvertList2ArrayTest {
     @Test
@@ -19,7 +18,7 @@ public class ConvertList2ArrayTest {
                 {4, 5, 6},
                 {7, 0, 0}
         };
-        assertThat(result, is(expected));
+        assertThat(result).isEqualTo(expected);
     }
 
     @Test
@@ -33,6 +32,6 @@ public class ConvertList2ArrayTest {
                 {3, 4},
                 {5, 0}
         };
-        assertThat(result, is(expected));
+        assertThat(result).isEqualTo(expected);
     }
 }
