@@ -23,6 +23,7 @@ public class PasswordValidator {
      * @param password Пароль
      * @return Вернет пароль или выбросит исключение.
      */
+    @SuppressWarnings("checkstyle:SimplifyBooleanExpression")
     public static String validate(String password) {
         if (password == null) {
             throw new IllegalArgumentException("Password can't be null");
@@ -58,6 +59,9 @@ public class PasswordValidator {
             }
             if (!Character.isLetterOrDigit(symbol)) {
                 hasSpecial = true;
+            }
+            if (hasUpCase && hasLowCase && hasDigit && hasSpecial) {
+                return password;
             }
         }
 
