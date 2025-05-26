@@ -11,6 +11,12 @@ public class UsageHashSet {
         cars.add("BMW");
         cars.add("Audi");
         cars.add("Mercedes");
+        cars.add("BMW");
+        cars.add("Audi");
+        cars.add("Mercedes");
+        cars.add("BMW");
+        cars.add("Audi");
+        cars.add("Mercedes");
         for (String car : cars) {
             System.out.println(car);
         }
