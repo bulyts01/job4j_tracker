@@ -1,6 +1,5 @@
 package ru.job4j.queue;
 
-import java.util.LinkedList;
 import java.util.Queue;
 
 public class AppleStore {
@@ -24,15 +23,11 @@ public class AppleStore {
     }
 
     public String getFirstUpsetCustomer() {
-        int size = queue.size();
 
-        for (int i = 0; i < size; i++) {
-            Customer currentCustomer = queue.poll();
-            if (i == count) {
-                return currentCustomer.name();
-            }
+        for (int i = 0; i < count; i++) {
+            queue.poll();
         }
 
-        return "";
+        return queue.poll().name();
     }
 }
