@@ -11,6 +11,7 @@ public class UsageMap {
         hashMap.put("stas@mail.ru", "Stas Korobeinikov");
         hashMap.put("aleksei@mail.ru", "Aleksie Alekseev");
         hashMap.put("ivan@mail.ru", "Ivan Ivanov");
+        hashMap.put("semen@mail.ru", "New Semen Bulytov duplicate");
 
         for (String key : hashMap.keySet()) {
             System.out.println(key + " = " + hashMap.get(key));
